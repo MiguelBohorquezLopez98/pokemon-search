@@ -15,7 +15,6 @@ const TypeBadge = ({ type }) => {
         ${styles.border}
       `}
         >
-            <span>{styles.emoji}</span>
             <span>{type}</span>
         </span>
     )

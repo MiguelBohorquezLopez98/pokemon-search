@@ -12,12 +12,6 @@
 
   /* UI */
   --bg: #FFF9E6;
-  --surface: #FFFFFF;
-  --border: #E8E0C8;
-  --border2: #D4C99A;
-  --text: #1a1a2e;
-  --muted: #8a7e5a;
-  --subtle: #FFFBF0;
 }
 
 h1 {
@@ -30,7 +24,6 @@ h1 {
 
 body {
   background: var(--bg);
-  color: var(--text);
   font-family: 'DM Sans', sans-serif;
   min-height: 100vh;
 }

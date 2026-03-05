@@ -2,13 +2,27 @@ const BASE_URL = import.meta.env.VITE_POKEAPI_URL
 export const getPokemon = async (nameOrId) => {
 
     const url = `${BASE_URL}/pokemon/${nameOrId.toLowerCase().trim()}`
-    const response = await fetch(url)
+    let response
+    try {
+        response = await fetch(url)
+    } catch {
+        throw new Error('No se pudo conectar con la PokéAPI. Revisa tu conexión.')
+    }
 
-    if (!response.ok) {
+    if (response.status === 404) {
         throw new Error(`Pokémon "${nameOrId}" no encontrado`)
     }
 
-    const data = await response.json()
+    if (!response.ok) {
+        throw new Error(`Error del servidor (${response.status}). Intenta de nuevo.`)
+    }
+
+    let data
+    try {
+        data = await response.json()
+    } catch {
+        throw new Error('La respuesta de la API no es válida.')
+    }
     return {
         id: data.id,
         name: data.name,

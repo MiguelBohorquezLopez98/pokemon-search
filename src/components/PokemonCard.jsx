@@ -11,10 +11,8 @@ const PokemonCard = ({ pokemon }) => {
 
     return (
         <div className="bg-white border-2 border-amber-200 rounded-2xl overflow-hidden shadow-[6px_6px_0px_#F4C300]">
-
-            {/* ── Barra superior estilo Pokédex ── */}
             <div className="bg-red-600 px-6 py-2.5 flex items-center gap-3">
-                <div className="w-6 h-6 rounded-full bg-gradient-to-br from-sky-300 to-blue-600 border-2 border-white shadow-[0_0_8px_rgba(59,130,246,0.7)]" />
+                <div className="w-6 h-6 rounded-full bg-linear-to-br from-sky-300 to-blue-600 border-2 border-white shadow-[0_0_8px_rgba(59,130,246,0.7)]" />
                 <div className="flex gap-1.5 ml-1">
                     <div className="w-2.5 h-2.5 rounded-full bg-red-400 border border-white/40" />
                     <div className="w-2.5 h-2.5 rounded-full bg-yellow-400 border border-white/40" />
@@ -26,13 +24,11 @@ const PokemonCard = ({ pokemon }) => {
             </div>
 
             {/* ── Header ── */}
-            <div className="flex items-start gap-6 p-7 bg-gradient-to-br from-amber-50 to-yellow-50 border-b-2 border-amber-100 relative overflow-hidden">
-
-                {/* Círculo decorativo de fondo */}
-                <div className="absolute -right-12 -top-12 w-48 h-48 rounded-full border-[24px] border-red-600/5 pointer-events-none" />
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-6 p-7 bg-linear-to-br from-amber-50 to-yellow-50 border-b-2 border-amber-100 relative overflow-hidden">
+                <div className="absolute -right-12 -top-12 w-48 h-48 rounded-full border-24 border-red-600/5 pointer-events-none" />
 
                 {/* Imagen del Pokémon */}
-                <div className="shrink-0 w-36 h-36 bg-gradient-to-br from-yellow-100 to-amber-200 border-2 border-amber-200 rounded-2xl flex items-center justify-center">
+                <div className="shrink-0 w-36 h-36 bg-linear-to-br from-yellow-100 to-amber-200 border-2 border-amber-200 rounded-2xl flex items-center justify-center">
                     <img
                         src={pokemon.image}
                         alt={pokemon.name}
@@ -43,24 +39,22 @@ const PokemonCard = ({ pokemon }) => {
 
                 {/* Info principal */}
                 <div className="flex-1 pt-1">
-
                     <span className="font-mono text-xs text-red-600 font-medium tracking-wide">
                         #{formattedId}
                     </span>
-
                     <h2 className="font-black text-5xl text-slate-800 leading-none tracking-wide mt-1 mb-3"
                         style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                         {formattedName}
                     </h2>
 
                     {/* Tipos */}
-                    <div className="flex gap-2 flex-wrap mb-4">
+                    <div className="flex justify-center md:justify-start gap-2 flex-wrap mb-4">
                         {pokemon.types.map((type) => (
                             <TypeBadge key={type} type={type} />
                         ))}
                     </div>
 
-                    {/* Stats rápidos: altura, peso, exp */}
+                    {/* Stats: altura, peso, exp */}
                     <div className="flex border-2 border-amber-200 rounded-xl overflow-hidden w-fit shadow-[2px_2px_0px_#F4C300] bg-white">
                         <div className="px-4 py-2 text-center">
                             <span className="block text-xl font-black text-red-600 leading-tight"
@@ -94,23 +88,23 @@ const PokemonCard = ({ pokemon }) => {
                 </div>
             </div>
 
-            {/* ── Cuerpo: stats + habilidades ── */}
+            {/* ── Stats + habilidades ── */}
             <div className="grid grid-cols-1 md:grid-cols-2 divide-y-2 md:divide-y-0 md:divide-x-2 divide-amber-100 bg-white">
 
-                {/* Columna izquierda: Stats */}
+                {/* Stats */}
                 <div className="p-6">
                     <h3 className="text-xs font-bold text-blue-700 uppercase tracking-widest mb-4 pb-2 border-b-2 border-amber-100">
-                        📊 Stats base
+                        Stats base
                     </h3>
                     {pokemon.stats.map((stat) => (
                         <StatBar key={stat.name} name={stat.name} value={stat.value} />
                     ))}
                 </div>
 
-                {/* Columna derecha: Habilidades + Detalles */}
+                {/* Habilidades + Detalles */}
                 <div className="p-6">
                     <h3 className="text-xs font-bold text-blue-700 uppercase tracking-widest mb-4 pb-2 border-b-2 border-amber-100">
-                        ⚡ Habilidades
+                        Habilidades
                     </h3>
 
                     <div className="flex flex-col gap-2 mb-6">
@@ -132,7 +126,7 @@ const PokemonCard = ({ pokemon }) => {
                     </div>
 
                     <h3 className="text-xs font-bold text-blue-700 uppercase tracking-widest mb-4 pb-2 border-b-2 border-amber-100">
-                        📋 Detalles
+                        Detalles
                     </h3>
 
                     <div className="grid grid-cols-2 gap-3">
