@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+:root {
+  /* Paleta Pokémon oficial */
+  --poke-red: #CC0000;
+  --poke-red-lt: #FF0000;
+  --poke-yellow: #FFDE00;
+  --poke-yellow2: #F4C300;
+  --poke-blue: #3B4CCA;
+  --poke-blue-lt: #5B6FD4;
+  --poke-white: #FFFFFF;
+
+  /* UI */
+  --bg: #FFF9E6;
+  --surface: #FFFFFF;
+  --border: #E8E0C8;
+  --border2: #D4C99A;
+  --text: #1a1a2e;
+  --muted: #8a7e5a;
+  --subtle: #FFFBF0;
+}
+
+h1 {
+  background: linear-gradient(135deg, var(--poke-red) 0%, var(--poke-red) 45%, var(--poke-blue) 55%, var(--poke-blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(2px 2px 0px rgba(255, 222, 0, 0.6));
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+}

@@ -1,0 +1,13 @@
+services:
+  pokedex-dev:
+    image: node:22-alpine
+    container_name: pokedex-dev
+    working_dir: /app
+    ports:
+      - "5173:5173"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: sh -c "npm install && npm run dev -- --host"
+    environment:
+      - VITE_POKEAPI_URL=https://pokeapi.co/api/v2
